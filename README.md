@@ -2,7 +2,7 @@
 Quickstart для бекенд сервера на FastAPI. Включает в себя конфиги для nginx, 
 
 ## Автоматическая установка
-` | sh`
+`curl https://raw.githubusercontent.com/TeaDove/fastapi-boilerplate/master/auto_install.sh | sh`
 
 ## Зависимости
 ```python
