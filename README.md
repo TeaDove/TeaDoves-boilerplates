@@ -3,7 +3,7 @@ Quickstart для бекенд сервера на FastAPI. Включает в 
 
 ## Установка
 - Запустить скрипт:<br>
-`curl https://raw.githubusercontent.com/TeaDove/fastapi-boilerplate/master/auto_install.sh | sh`
+`curl https://raw.githubusercontent.com/TeaDove/fastapi-boilerplate/master/auto_install.sh | bash`
 - Скопировать созданную папку с проектом в нужный репозиторий 
 - Радоваться
 
