@@ -19,7 +19,7 @@ app.add_middleware(
 
 @app.on_event("startup")
 async def startup_event():
-    logger.info(f"Docs: {Settings.hostname}:{Settings.port}/docs")
+    logger.info(f"Docs: {Settings().hostname}:{Settings().port}/docs")
 
 
 # Заглушка на /
