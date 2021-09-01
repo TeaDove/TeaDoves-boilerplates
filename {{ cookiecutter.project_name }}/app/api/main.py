@@ -19,7 +19,7 @@ app.add_middleware(
 
 @app.on_event("startup")
 async def startup_event():
-    logger.info("Docs: http://{{ cookiecutter.hostname }}:9998/docs")
+    logger.info(f"Docs: {Settings.hostname}:{Settings.port}/docs")
 
 
 # Заглушка на /
