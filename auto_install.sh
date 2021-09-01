@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-git clone https://github.com/teadove/fastapi-boulerplate
-cd fastapi-boulerplate
+git clone https://github.com/teadove/fastapi-boilerplate
+cd fastapi-boilerplate
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -U pip
