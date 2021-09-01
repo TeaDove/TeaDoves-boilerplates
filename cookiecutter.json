@@ -1,0 +1,5 @@
+{
+  "project_name": "FastAPI_boilerplate",
+  "hostname": "localhost",
+  "env_filename": ".env"
+}

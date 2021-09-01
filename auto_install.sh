@@ -8,6 +8,4 @@ pip install -U pip
 pip install poetry
 poetry install
 
-touch .env # в .env положить настройки,
-# список настроек в /app/core/settings.py
-bash start.sh # Тестовый запуск
+cookiecutter ./app/
