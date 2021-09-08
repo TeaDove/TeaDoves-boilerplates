@@ -1,7 +1,7 @@
 ## FastAPI boilerplate
 Quickstart для бекенд сервера на FastAPI. Включает в себя конфиги для nginx, systemd,
 supervisord и docker. Полное описание структуры, используемых библиотек, конфигураций и тд 
-вы можете найти в [DESCRIPTION.md](https://vk.com)
+вы можете найти в [DESCRIPTION.md](https://github.com/TeaDove/fastapi-boilerplate/blob/master/DESC.md)
 
 ## Установка
 - Склонируйте репозиторий и установите coockiecutter:<br>
@@ -24,7 +24,8 @@ hostname: Название хоста
 env_filename: Название файла конфигурации(лучше оставить умолчательное)
 ```
 - Скопируйте созданную папку с проектом в нужный репозиторий
-- Скопируйте нужную вам конфигурацию. Подробнее читайте этот [ридми](https://vk.com).
+- Скопируйте нужную вам конфигурацию. Подробнее читайте этот 
+  [ридми](<https://github.com/TeaDove/fastapi-boilerplate/tree/master/{{ cookiecutter.project_slug }}/conf.d>).
 - Радуйтесь!
 
 ## Cookiecutter
