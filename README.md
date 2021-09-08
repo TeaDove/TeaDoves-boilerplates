@@ -3,8 +3,16 @@ Quickstart для бекенд сервера на FastAPI. Включает в 
 supervisord и docker.
 
 ## Установка
-- Запустить скрипт:<br>
-`curl https://raw.githubusercontent.com/TeaDove/fastapi-boilerplate/master/downloader.sh | bash`
+- Склонируйте репозиторий и установите coockiecutter:<br>
+``` bash
+git clone https://github.com/teadove/fastapi-boilerplate
+cd fastapi-boilerplate 
+pip3 install cookiecutter
+```
+- Запустите кукикаттер:
+``` bash
+cookiecutter ./
+```
 - Заполнить данные:
 ``` yaml
 project_name: Название проекта
@@ -14,10 +22,11 @@ description: Описание проекта
 hostname: Название хоста
 env_filename: Название файла конфигурации(лучше оставить умолчательное)
 ```
-- Скопировать созданную папку с проектом в нужный репозиторий 
-- Радоваться
+- Скопируйте созданную папку с проектом в нужный репозиторий 
+- Радуйтесь!
 
 ## Cookiecutter
+Coockiecutter - библиотека на python, позволяющая создавать шаблоны и по ним генерировать файлы.<br>
 После использования вышеуказанного скрипта вам будет предложено выбрать 
 называние проекту и его хостнейм.  
 Если вы не хотите использовать шаблонизацию, то можете просто 
