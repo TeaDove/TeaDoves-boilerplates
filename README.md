@@ -3,7 +3,7 @@ Quickstart для бекенд сервера на FastAPI. Включает в 
 
 ## Установка
 - Запустить скрипт:<br>
-`curl https://raw.githubusercontent.com/TeaDove/fastapi-boilerplate/master/auto_install.sh | bash`
+`curl https://raw.githubusercontent.com/TeaDove/fastapi-boilerplate/master/downloader.sh | bash`
 - Скопировать созданную папку с проектом в нужный репозиторий 
 - Радоваться
 
@@ -26,7 +26,7 @@ loguru = "^0.5.3"
 
 ## Утилы
 - `start.sh` - включение .venv и сервера
-- `auto_install.sh` - клонирование репозитория, установка зависимостей и включение сервера
+- `setup.sh` - установка зависимостей
 - `redeploy.sh` - pull репозитория и перезагрузка сервера
 
 ## Contribute
@@ -35,6 +35,6 @@ loguru = "^0.5.3"
 
 ## TODO 
 - [ ] контейнерезировать
-- [ ] конфиг systemd
+- [X] конфиг systemd
 - [X] coockiecutter
 - [ ] автоустановщик **всех нужных** пакетов для дебиана
