@@ -1,7 +1,8 @@
 ## {{ cookiecutter.project_name }}
 
-## Запуск
-`./start.sh`
+## Утилиты
+`./setup.sh` - создание .venv и установка зависимостей
+`./start.sh` - запуск сервера
 
 ## Зависимости
 ```python
