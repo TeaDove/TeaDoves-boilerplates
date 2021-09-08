@@ -1,9 +1,19 @@
 ## FastAPI boilerplate
-Quickstart для бекенд сервера на FastAPI. Включает в себя конфиги для nginx, 
+Quickstart для бекенд сервера на FastAPI. Включает в себя конфиги для nginx, systemd,
+supervisord и docker.
 
 ## Установка
 - Запустить скрипт:<br>
 `curl https://raw.githubusercontent.com/TeaDove/fastapi-boilerplate/master/downloader.sh | bash`
+- Заполнить данные:
+``` yaml
+project_name: Название проекта
+project_slug: Ярлык проекта(используется в конфигах и папках, не используйте пробелы и 
+              заглавные буквы)
+description: Описание проекта
+hostname: Название хоста
+env_filename: Название файла конфигурации(лучше оставить умолчательное)
+```
 - Скопировать созданную папку с проектом в нужный репозиторий 
 - Радоваться
 
@@ -27,14 +37,13 @@ loguru = "^0.5.3"
 ## Утилы
 - `start.sh` - включение .venv и сервера
 - `setup.sh` - установка зависимостей
-- `redeploy.sh` - pull репозитория и перезагрузка сервера
 
 ## Contribute
 Если вы хотите помочь проекту, залейте пул реквест.  
 Для обратной связи пишите в тг: [@teadove](https://t.me/teadove)
 
 ## TODO 
-- [ ] контейнерезировать
+- [X] контейнерезировать
 - [X] конфиг systemd
 - [X] coockiecutter
 - [ ] автоустановщик **всех нужных** пакетов для дебиана
