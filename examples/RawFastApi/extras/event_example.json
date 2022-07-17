@@ -1,0 +1,13 @@
+{
+  "body": "\"{\"message\": \"HelloWorld\"}\"",
+  "resource": "/time",
+  "path": "/time",
+  "queryStringParameters": {},
+  "httpMethod": "GET",
+  "isBase64Encoded": false,
+  "requestContext": {
+    "httpMethod": "GET",
+    "path": "/time",
+    "resourcePath": "/time"
+  }
+}

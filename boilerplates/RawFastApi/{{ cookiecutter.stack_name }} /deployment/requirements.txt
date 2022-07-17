@@ -1,0 +1,6 @@
+pydantic[email,dotenv]==1.9.0
+aws-lambda-powertools==1.25.6
+pyhumps==3.7.1
+ujson==5.2.0
+uvicorn==0.17.6
+fastapi==0.75.1
