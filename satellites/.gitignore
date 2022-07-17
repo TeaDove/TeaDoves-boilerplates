@@ -16,13 +16,6 @@
 **/.terraform.lock.hcl
 ### TERRAGRUNT FILES ###
 **/.terragrunt-cache
-### LAYERS BUILDS ###
-**/.s3_layer_key.txt
-### Lambda Boilerplate ###
-misc/LambdaBoilerplate/**
-!misc/LambdaBoilerplate/{{ cookiecutter.stack_name }}
-!misc/LambdaBoilerplate/coockicutter.json
-!misc/LambdaBoilerplate/README.md
 
 # Poetry
 poetry.lock
