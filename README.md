@@ -25,3 +25,9 @@ cookiecutter \
       https://github.com/TeaDove/TeaDoves-boilerplates \
       --directory boilerplates/nginx
 ```
+
+### Coockiecutter
+To use [coockicutter](https://github.com/cookiecutter/cookiecutter) simply
+```shell
+pip3 install cookiecutter
+```
