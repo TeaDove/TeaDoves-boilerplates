@@ -1,8 +1,3 @@
-#### Table of content
-1. [boilerplates](https://github.com/TeaDove/TeaDoves-boilerplates/tree/master/boilerplates) - `coockiecutter` boilerplates
-2. [examples](https://github.com/TeaDove/TeaDoves-boilerplates/tree/master/examples) - already created and ready to use examples
-3. [satellites](https://github.com/TeaDove/TeaDoves-boilerplates/tree/master/satellites) - `.gitignore`, `pre-commit-config.yaml`, etc.
-
 #### Boilerplates
 - RawFastApi
 Minimum workings fastapi boilerplate
@@ -24,10 +19,4 @@ Nginx boilerplate, with ssl, corses, backend and frontend
 cookiecutter \
       https://github.com/TeaDove/TeaDoves-boilerplates \
       --directory boilerplates/nginx
-```
-
-### Coockiecutter
-To use [coockicutter](https://github.com/cookiecutter/cookiecutter) simply
-```shell
-pip3 install cookiecutter
 ```
