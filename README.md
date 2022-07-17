@@ -10,7 +10,6 @@ Minimum workings fastapi boilerplate
 cookiecutter \
       https://github.com/TeaDove/TeaDoves-boilerplates \
       --directory boilerplates/RawFastApi
-
 ```
 - DDDFastapi
 Fastapi boilerplate with minimum DDD
@@ -18,7 +17,6 @@ Fastapi boilerplate with minimum DDD
 cookiecutter \
       https://github.com/TeaDove/TeaDoves-boilerplates \
       --directory boilerplates/DDDFastapi
-
 ```
 - Nginx
 Nginx boilerplate, with ssl, corses, backend and frontend
@@ -26,5 +24,4 @@ Nginx boilerplate, with ssl, corses, backend and frontend
 cookiecutter \
       https://github.com/TeaDove/TeaDoves-boilerplates \
       --directory boilerplates/nginx
-
 ```
