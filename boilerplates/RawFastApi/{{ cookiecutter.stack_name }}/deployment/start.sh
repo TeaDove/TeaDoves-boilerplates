@@ -2,4 +2,4 @@
 
 source .venv/bin/activate
 cd ../services/main
-exec python entrypoints.py
+exec uvicorn entrypoints:uvicorn_app

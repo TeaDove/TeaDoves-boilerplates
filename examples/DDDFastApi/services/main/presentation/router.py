@@ -1,6 +1,7 @@
 from dependency_injector.wiring import Provide, inject
 from fastapi import APIRouter, Depends
 
+from core.base import logger
 from core.containers import ApplicationContainer
 from presentation.logs_utils import LoggerRouteHandler
 from presentation.schemas.time import GetTimeResponse
@@ -13,4 +14,6 @@ router = APIRouter(prefix="", route_class=LoggerRouteHandler)
 @inject
 async def get_region_config(app_service: AppService = Depends(Provide[ApplicationContainer.services.app_service])):
     now = await app_service.get_time()
+    logger.debug({"status": "debug.log"})
+    logger.info(now)
     return GetTimeResponse(timestamp=now[1], time=now[0])

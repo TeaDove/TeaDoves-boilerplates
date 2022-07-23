@@ -1,5 +1,6 @@
 from typing import Callable
 
+from aws_lambda_powertools import Logger
 from fastapi import Request, Response
 from fastapi.routing import APIRoute
 
@@ -21,6 +22,8 @@ async def add_event_to_logger(request: Request):
 class LoggerRouteHandler(APIRoute):
     def get_route_handler(self) -> Callable:
         original_route_handler = super().get_route_handler()
+        if not isinstance(logger, Logger):
+            return original_route_handler
 
         async def route_handler(request: Request) -> Response:
             await add_event_to_logger(request)

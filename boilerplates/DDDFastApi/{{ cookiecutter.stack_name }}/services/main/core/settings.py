@@ -1,9 +1,15 @@
 from pydantic import BaseSettings
 
 
+class _Settings(BaseSettings):
+    log_level: str = "INFO"
+
+    class Config:
+        env_file = ".env"
+
+
 class _AppSettings(BaseSettings):
-    hostname: str = "localhost"
-    port: int = 8000
+    local_run: bool = False
     base_apigw_path: str = "/v0"
     show_swagger: bool = False
 
@@ -12,4 +18,5 @@ class _AppSettings(BaseSettings):
         env_prefix = "app_"
 
 
+settings = _Settings()
 app_settings = _AppSettings()

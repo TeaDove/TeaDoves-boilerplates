@@ -6,3 +6,4 @@ uvicorn==0.17.6
 fastapi==0.75.1
 mangum==0.15.0
 dependency-injector==4.39.1
+structlog==22.1.0
