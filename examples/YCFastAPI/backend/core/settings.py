@@ -11,7 +11,7 @@ class _Settings(BaseSettings):
 
 
 class _UvicornSettings(BaseSettings):
-    workers: int = 4
+    workers: Optional[int] = None
     port = 8000
     host = "localhost"
 

@@ -1,15 +1,10 @@
-import asyncio
-
+from service.service_app import ServiceApp
 from unit_of_work.unit_of_work import AsyncUnitOfWorkFactory
 
+service_app = ServiceApp()
 unit_of_work_factory = AsyncUnitOfWorkFactory()
-loop = asyncio.get_event_loop()
 
 
 class TestClass:
-    async def main(self):
-        async with unit_of_work_factory() as uow:
-            ...
-
-    def test_ok(self):
-        loop.run_until_complete(self.main())
+    async def test_process_request(self):
+        await service_app.process_request()
