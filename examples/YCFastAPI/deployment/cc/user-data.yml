@@ -1,0 +1,8 @@
+#cloud-config
+users:
+  - name: root
+    groups: sudo
+    shell: /bin/bash
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    ssh_authorized_keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDUwYpuIE2Uku4R2iXYmkCs+mpBCrwTv+E1SpZW1TVSAXpzxCJ4Fq9lg0cyN/lOkA5P/qBax959nKq1epJ/ZuuMlGBLWk1PbUv6vkqsNZZppbHiOyyearVC9XGSg39WMbPo66w59R9uRFUehOeBpNCwpi+svZY4UU8CQwc3TVPFv6m0jKe7ejAJDlV7j8XyE8muKR1AoRMeRoV6OOKTNT975yrFXxIau2E3hz2UVVNURIYwQsn8nZTuNxoYkMwRkCzrMWgKfQ8Xqcu0lyOYwRynoEtG0uEU5Sj9QgO7W/5n/wfIb8xQ6b2+2QOvzOgn4NthyXJU7SahhqYdHNbulk4QwAfaK4d2a1nGRg+OZN9Ffzuf3f1YO1HGVlFxVybq/mtlT329/2RYTV16GH62syk9lt9bnaEw/ADpN4/zGrHsBvuEbkRahUUuaY7wrrXEEiDJVhRyIctLZrAT3c8B3lske/3dKXCMWNe9h/5ULbLCV0j6tRMbM2I4yzQuYuyErHk= teadove@TeaDoves-MacBook-Pro.local
