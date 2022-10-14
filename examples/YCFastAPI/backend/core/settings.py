@@ -10,6 +10,16 @@ class _Settings(BaseSettings):
         env_file = ".env"
 
 
+class _UvicornSettings(BaseSettings):
+    workers: int = 4
+    port = 8000
+    host = "localhost"
+
+    class Config:
+        env_file = ".env"
+        env_prefix = "uvicorn_"
+
+
 class _AppSettings(BaseSettings):
     local_run: bool = False
     show_swagger: bool = False
@@ -20,7 +30,7 @@ class _AppSettings(BaseSettings):
 
 
 class _DBSettings(BaseSettings):
-    dsn: PostgresDsn
+    dsn: Optional[PostgresDsn] = None
     autocommit: bool = False
 
     class Config:
@@ -42,3 +52,4 @@ db_settings = _DBSettings()
 settings = _Settings()
 app_settings = _AppSettings()
 security_settings = _SecuritySettings()
+uvicorn_settings = _UvicornSettings()

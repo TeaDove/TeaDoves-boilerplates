@@ -5,7 +5,6 @@ from starlette.exceptions import ExceptionMiddleware
 from core.base import logger
 from core.settings import app_settings
 from presentation.routers import router_app
-from service.service_app import ServiceApp
 
 
 def create_app() -> FastAPI:
@@ -16,7 +15,6 @@ def create_app() -> FastAPI:
     )
     fastapi_app.add_middleware(ExceptionMiddleware, handlers=fastapi_app.exception_handlers)
     fastapi_app.include_router(router_app.router)
-    fastapi_app.service_app = ServiceApp()
     return fastapi_app
 
 
