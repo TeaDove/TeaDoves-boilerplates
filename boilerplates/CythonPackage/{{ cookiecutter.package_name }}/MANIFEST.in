@@ -1,1 +1,1 @@
-include src/package_name/*.pyx
+include src/{{cookiecutter.package_name}}/*.pyx
