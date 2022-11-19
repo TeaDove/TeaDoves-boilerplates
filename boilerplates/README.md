@@ -20,3 +20,10 @@ cookiecutter \
       https://github.com/TeaDove/TeaDoves-boilerplates \
       --directory boilerplates/nginx
 ```
+- CythonPackage
+Cython package with Cythonize, setup.py and Makefile
+```shell
+cookiecutter \
+      https://github.com/TeaDove/TeaDoves-boilerplates \
+      --directory boilerplates/CythonPackage
+```

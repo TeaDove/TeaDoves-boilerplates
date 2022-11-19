@@ -30,6 +30,7 @@ module "apigw" {
 
 module "sqs" {
   source = "./sqs"
+  count = 0
 
   name_prefix  = var.name_prefix
   yc_folder_id = var.yc_folder_id

@@ -25,7 +25,7 @@ resource "yandex_function" "function" {
   user_hash          = data.archive_file.archive.output_base64sha256
   runtime            = "python39"
   entrypoint         = "entrypoints.yc_lambda_handler"
-  memory             = "128"
+  memory             = "512"
   execution_timeout  = "30"
   service_account_id = yandex_iam_service_account.sa.id
 
