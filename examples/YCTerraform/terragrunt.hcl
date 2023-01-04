@@ -13,18 +13,23 @@ locals {
   stack              = local.local_yaml_config["stack"]
   is_prod            = lookup(local.stage_vars, "is_prod", local.stage == "prod" ? true : false)
   terraform_dir_path = get_env("PWD", ".")
+  src_path =  "${local.terraform_dir_path}/${local.local_yaml_config["src_path"]}"
   name_prefix        = lower(join("-", [title(local.stage), title(local.department), local.stack]))
+  global_deployment_settings = {
+       "stage" : local.stage
+       "department" : local.department
+       "stack" : local.stack
+       "is_prod" : local.is_prod
+       "terraform_dir_path" : local.terraform_dir_path
+       "src_path": local.src_path
+       "name_prefix" : local.name_prefix
+       "yc_cloud_id"  : local.stage_vars["yc_cloud_id"]
+       "yc_folder_id" : local.stage_vars["yc_folder_id"]
+       "yc_zone"      : local.stage_vars["yc_zone"]
+     }
 }
 
-inputs = merge(local.stage_vars, {
-  stage      = local.stage
-  stack      = local.stack
-  department = local.department
-
-  terraform_dir_path = local.terraform_dir_path
-  is_prod            = local.stage == "prod" ? true : false
-  name_prefix        = local.name_prefix
-  }
+inputs = merge(local.stage_vars, { global_deployment_settings = local.global_deployment_settings }
 )
 
 generate "provider" {

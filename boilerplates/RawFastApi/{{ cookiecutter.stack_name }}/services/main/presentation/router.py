@@ -9,7 +9,7 @@ router = APIRouter(prefix="")
 
 
 @router.get("/now", response_model=GetTimeResponse)
-async def get_region_config():
+async def get_now():
     logger.debug({"status": "got.request!"})
     now = datetime.now(), int(datetime.now().timestamp())
     logger.info(now)

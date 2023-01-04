@@ -11,7 +11,8 @@ data "yandex_compute_image" "container-optimized-image" {
 }
 
 resource "yandex_compute_instance" "db_server" {
-  name        = join("-", [var.name_prefix, "db-server"])
+  # https://cloud.yandex.ru/docs/compute/concepts/vm-platforms
+  name        = join("-", [var.global_deployment_settings["name_prefix"], "db-server"])
   platform_id = "standard-v2"
 
   resources {
@@ -33,11 +34,12 @@ resource "yandex_compute_instance" "db_server" {
   }
 
   metadata = {
-    docker-compose = templatefile("${var.terraform_dir_path}/cc/docker-compose.tftpl",
-      { container_image_url = var.container_image_url,
-        postgres_user       = var.postgres_user
-    postgres_password = var.postgres_password })
-    user-data = file("${var.terraform_dir_path}/cc/user-data.yml")
+    docker-compose = templatefile("${var.global_deployment_settings["terraform_dir_path"]}/cc/docker-compose.tftpl", {
+      container_image_url = var.container_image_url,
+      postgres_user       = var.postgres_user
+      postgres_password   = var.postgres_password
+    })
+    user-data = file("${var.global_deployment_settings["terraform_dir_path"]}/cc/user-data.yml")
   }
   service_account_id = yandex_iam_service_account.sa.id
 
@@ -47,13 +49,13 @@ resource "yandex_compute_instance" "db_server" {
 }
 
 resource "yandex_iam_service_account" "sa" {
-  name = join("-", [var.name_prefix, "sa"])
+  name = join("-", [var.global_deployment_settings["name_prefix"], "sa"])
 }
 
 resource "yandex_resourcemanager_folder_iam_binding" "sa_binding" {
   role      = each.value
   members   = ["serviceAccount:${yandex_iam_service_account.sa.id}"]
-  folder_id = var.yc_folder_id
+  folder_id = var.global_deployment_settings["yc_folder_id"]
   for_each = {
     "role1" : "container-registry.images.puller"
   }

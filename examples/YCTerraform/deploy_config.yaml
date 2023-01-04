@@ -1,0 +1,18 @@
+department: service
+stack: backend-service
+src_path: ../YCFastApi/backend
+defaults:
+  yc_cloud_id: b1g15gt835j53bc2hir0 # put your cloud id
+  yc_folder_id: b1gt1lbgafrf073jso0u # put your folder id
+  yc_zone: ru-central1-a
+  log_level: DEBUG
+  vpc_ip_blocks: ["10.2.0.0/16"]
+  cc_ip_addresses: ["10.2.0.2"]
+
+envs:
+  stable:
+    db_dsn: ...
+    show_swagger: true
+    log_level: DEBUG
+  prod:
+    log_level: DEBUG

@@ -4,22 +4,11 @@ from fastapi.responses import UJSONResponse
 from starlette.exceptions import ExceptionMiddleware
 
 from core.base import logger
-from core.settings import app_settings
 from presentation.router import router
 
-
-def create_app() -> FastAPI:
-    fastapi_app = FastAPI(
-        docs_url=None if app_settings.show_swagger else "/docs",
-        redoc_url=None if app_settings.show_swagger else "/redoc",
-        openapi_url=None if app_settings.show_swagger else "/openapi.json",
-    )
-    fastapi_app.add_middleware(ExceptionMiddleware, handlers=fastapi_app.exception_handlers)
-    fastapi_app.include_router(router)
-    return fastapi_app
-
-
-app = create_app()
+app = FastAPI()
+app.add_middleware(ExceptionMiddleware, handlers=app.exception_handlers)
+app.include_router(router)
 
 
 @app.exception_handler(StarletteHTTPException)

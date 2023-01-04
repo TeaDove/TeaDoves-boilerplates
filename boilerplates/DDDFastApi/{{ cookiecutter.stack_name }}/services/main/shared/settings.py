@@ -10,7 +10,7 @@ class _Settings(BaseSettings):
 
 class _AppSettings(BaseSettings):
     local_run: bool = False
-    base_apigw_path: str = "/v0"
+    base_apigw_path: str = ""
     show_swagger: bool = False
 
     class Config:

@@ -17,14 +17,10 @@ def create_yc_lambda_handler(fastapi_app: FastAPI):
 
     class YCAPIGateway(APIGateway):
         @classmethod
-        def infer(
-            cls, event: LambdaEvent, context: YCLambdaContext, config: LambdaConfig
-        ) -> bool:
+        def infer(cls, event: LambdaEvent, context: YCLambdaContext, config: LambdaConfig) -> bool:
             return "path" in event and "requestContext" in event
 
-        def __init__(
-            self, event: LambdaEvent, context: YCLambdaContext, config: LambdaConfig
-        ) -> None:
+        def __init__(self, event: LambdaEvent, context: YCLambdaContext, config: LambdaConfig) -> None:
             super().__init__(event, context, config)
 
     return Mangum(fastapi_app, custom_handlers=[YCAPIGateway])
@@ -36,9 +32,7 @@ uvicorn_app = app
 if __name__ == "__main__":
     uvicorn.run(
         "entrypoints:uvicorn_app",
-        workers=uvicorn_settings.workers
-        if uvicorn_settings.workers is not None
-        else multiprocessing.cpu_count() * 2,
+        workers=uvicorn_settings.workers if uvicorn_settings.workers is not None else multiprocessing.cpu_count() * 2,
         host=uvicorn_settings.host,
         port=uvicorn_settings.port,
     )

@@ -4,7 +4,7 @@ from aws_lambda_powertools import Logger
 from fastapi import Request, Response
 from fastapi.routing import APIRoute
 
-from core.base import logger
+from shared.base import logger
 
 
 async def add_event_to_logger(request: Request):

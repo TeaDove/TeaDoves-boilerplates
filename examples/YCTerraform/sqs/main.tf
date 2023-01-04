@@ -7,7 +7,7 @@ terraform {
 }
 
 resource "yandex_message_queue" "queue" {
-  name                       = join("-", [var.name_prefix, "queue"])
+  name                       = join("-", [var.global_deployment_settings["name_prefix"], "queue"])
   visibility_timeout_seconds = 600
   receive_wait_time_seconds  = 0
   message_retention_seconds  = 1209600
@@ -18,13 +18,13 @@ resource "yandex_message_queue" "queue" {
 
 
 resource "yandex_iam_service_account" "sa" {
-  name = join("-", [var.name_prefix, "message-queue-sa"])
+  name = join("-", [var.global_deployment_settings["name_prefix"], "message-queue-sa"])
 }
 
 resource "yandex_resourcemanager_folder_iam_binding" "sa_binding" {
   role      = each.value
   members   = ["serviceAccount:${yandex_iam_service_account.sa.id}"]
-  folder_id = var.yc_folder_id
+  folder_id = var.global_deployment_settings["yc_folder_id"]
   for_each = {
     "role1" : "editor"
   }

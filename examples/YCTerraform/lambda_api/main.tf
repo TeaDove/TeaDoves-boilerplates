@@ -8,8 +8,8 @@ terraform {
 
 locals {
   lambda_name     = "api-entrypoint"
-  src_directory   = "${var.terraform_dir_path}/../backend"
-  lambda_fullname = join("-", [var.name_prefix, local.lambda_name])
+  src_directory   = var.global_deployment_settings["src_path"]
+  lambda_fullname = join("-", [var.global_deployment_settings["name_prefix"], local.lambda_name])
 }
 
 
@@ -37,8 +37,8 @@ resource "yandex_function" "function" {
     LOG_LEVEL               = var.log_level
     POWERTOOLS_SERVICE_NAME = local.lambda_fullname
 
-    db_dsn           = var.db_dsn
-    show_swagger     = var.show_swagger
+    db_dsn       = var.db_dsn
+    show_swagger = var.show_swagger
 
     security_yc_access_key = yandex_iam_service_account_static_access_key.sa_static_key.access_key
     security_yc_secret_key = yandex_iam_service_account_static_access_key.sa_static_key.secret_key
@@ -46,17 +46,16 @@ resource "yandex_function" "function" {
 }
 
 resource "yandex_iam_service_account" "sa" {
-  name = join("-", [var.name_prefix, "sa"])
+  name = join("-", [var.global_deployment_settings["name_prefix"], "sa"])
 }
 
 resource "yandex_resourcemanager_folder_iam_binding" "sa_binding" {
   role      = each.value
   members   = ["serviceAccount:${yandex_iam_service_account.sa.id}"]
-  folder_id = var.yc_folder_id
+  folder_id = var.global_deployment_settings["yc_folder_id"]
   for_each = {
     "role1" : "serverless.functions.invoker"
     "role2" : "serverless.containers.invoker"
-    "role3" : "editor"
   }
 }
 

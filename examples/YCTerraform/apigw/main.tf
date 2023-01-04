@@ -7,7 +7,7 @@ terraform {
 }
 
 resource "yandex_api_gateway" "rest_api" {
-  name = lower(replace(join("_", [var.name_prefix, "APIGW"]), "_", "-"))
+  name = lower(replace(join("_", [var.global_deployment_settings["name_prefix"], "APIGW"]), "_", "-"))
   spec = <<-EOT
 openapi: 3.0.0
 info:

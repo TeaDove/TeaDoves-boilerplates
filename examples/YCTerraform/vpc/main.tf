@@ -7,10 +7,10 @@ terraform {
 }
 
 resource "yandex_vpc_network" "main_vpc" {
-  name = join("-", [var.name_prefix, "vpc-network"])
+  name = join("-", [var.global_deployment_settings["name_prefix"], "vpc-network"])
 }
 
 resource "yandex_vpc_subnet" "main_subnet" {
-  v4_cidr_blocks = ["10.2.0.0/16"]
+  v4_cidr_blocks = var.vpc_ip_blocks
   network_id     = yandex_vpc_network.main_vpc.id
 }

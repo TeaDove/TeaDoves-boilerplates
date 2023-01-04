@@ -3,22 +3,19 @@ from fastapi.exceptions import RequestValidationError, StarletteHTTPException
 from fastapi.responses import UJSONResponse
 from starlette.exceptions import ExceptionMiddleware
 
-from core.base import logger
-from core.containers import ApplicationContainer
-from core.settings import app_settings
 from presentation.router import router
+from shared.base import logger
+from shared.settings import app_settings
 
 
 def create_app() -> FastAPI:
-    fastapi_app = FastAPI(
-        docs_url=None if app_settings.show_swagger else "/docs",
-        redoc_url=None if app_settings.show_swagger else "/redoc",
-        openapi_url=None if app_settings.show_swagger else "/openapi.json",
-    )
+    if app_settings.show_swagger:
+        fastapi_app = FastAPI()
+    else:
+        fastapi_app = FastAPI(docs_url=None, redoc_url=None, openapi_url=None)
+
     fastapi_app.add_middleware(ExceptionMiddleware, handlers=fastapi_app.exception_handlers)
     fastapi_app.include_router(router)
-    container = ApplicationContainer()
-    fastapi_app.container = container
     return fastapi_app
 
 
